@@ -2,16 +2,18 @@
 import requests
 from bs4 import BeautifulSoup
 
+#creating an empty list to store every book
 book_list = []
 
 for x in range(1,51):
     #adding our base url
     url = f'https://books.toscrape.com/catalogue/page-{x}.html'
 
+    #getting the content of the page and adding it to beautifulsoup
     r = requests.get(url)
-
     soup = BeautifulSoup(r.text, 'html.parser')
 
+    
     article = soup.findAll('article', class_ = 'product_pod')
 
 
