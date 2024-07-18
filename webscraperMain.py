@@ -13,9 +13,7 @@ for x in range(1,51):
     r = requests.get(url)
     soup = BeautifulSoup(r.text, 'html.parser')
 
-    
     article = soup.findAll('article', class_ = 'product_pod')
-
 
     for book in article:
         title = book.find_all('a')[1]['title']
